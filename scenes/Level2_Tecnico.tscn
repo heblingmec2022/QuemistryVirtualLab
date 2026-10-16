@@ -1,0 +1,221 @@
+[gd_scene load_steps=4 format=3 uid="uid://lvl2tecnico02"]
+
+[ext_resource type="Script" path="res://scripts/Level2_Tecnico.gd" id="1_lvl2"]
+[ext_resource type="PackedScene" path="res://scenes/LabBench2D.tscn" id="2_bench"]
+[ext_resource type="PackedScene" path="res://scenes/RefluxRiskPanel.tscn" id="3_reflux"]
+
+[node name="Level2_Tecnico" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvl2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.1, 0.14, 1)
+
+[node name="LabBench2D" parent="." instance=ExtResource("2_bench")]
+position = Vector2(240, 60)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBox" type="HBoxContainer" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="UI/TopBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "  ⚗️ Nível 2: Técnico de Laboratório (Ciclo 2 DBR)"
+
+[node name="PrepPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(360, 130)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -65.0
+offset_right = 180.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/PrepPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/PrepPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "⚖️ Preparação dos Reagentes (CuO + C)"
+horizontal_alignment = 1
+
+[node name="ProportionOption" type="OptionButton" parent="UI/PrepPanel/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="StartHeatingBtn" type="Button" parent="UI/PrepPanel/VBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Montar Bancada e Iniciar 🧪"
+
+[node name="ControlPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -170.0
+offset_right = 280.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/ControlPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FlameToggleBtn" type="Button" parent="UI/ControlPanel/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Acender Bico Bunsen 🔥"
+
+[node name="FlameSliderLabel" type="Label" parent="UI/ControlPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Intensidade da Chama:"
+
+[node name="FlameSlider" type="HSlider" parent="UI/ControlPanel/VBox"]
+layout_mode = 2
+value = 80.0
+
+[node name="DetachBeakerBtn" type="Button" parent="UI/ControlPanel/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Afastar Tubo da Água de Cal 🛡️"
+
+[node name="StatusPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -65.0
+offset_right = -30.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="HBoxContainer" parent="UI/StatusPanel"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="UI/StatusPanel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Selecione a proporção molar correta dos reagentes."
+autowrap_mode = 2
+
+[node name="EquationPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(480, 160)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -510.0
+offset_top = 70.0
+offset_right = -30.0
+offset_bottom = 230.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/EquationPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/EquationPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "📝 Associação de Equações Químicas"
+horizontal_alignment = 1
+
+[node name="HBoxEq" type="HBoxContainer" parent="UI/EquationPanel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Lbl1" type="Label" parent="UI/EquationPanel/VBox/HBoxEq"]
+layout_mode = 2
+text = "2 CuO(s) + C(s) -> "
+
+[node name="SpinCu" type="SpinBox" parent="UI/EquationPanel/VBox/HBoxEq"]
+layout_mode = 2
+max_value = 10.0
+
+[node name="Lbl2" type="Label" parent="UI/EquationPanel/VBox/HBoxEq"]
+layout_mode = 2
+text = " Cu(s) + "
+
+[node name="SpinCO2" type="SpinBox" parent="UI/EquationPanel/VBox/HBoxEq"]
+layout_mode = 2
+max_value = 10.0
+
+[node name="Lbl3" type="Label" parent="UI/EquationPanel/VBox/HBoxEq"]
+layout_mode = 2
+text = " CO2(g)"
+
+[node name="CheckEqBtn" type="Button" parent="UI/EquationPanel/VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Verificar Coeficientes 🔍"
+
+[node name="EqFeedbackLbl" type="Label" parent="UI/EquationPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="RefluxRiskPanel" parent="UI" instance=ExtResource("3_reflux")]
+layout_mode = 1
+
+[node name="FinishLevelBtn" type="Button" parent="UI"]
+custom_minimum_size = Vector2(220, 45)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -120.0
+offset_right = -30.0
+offset_bottom = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Concluir Nível 2 ⭐"

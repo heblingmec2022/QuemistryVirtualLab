@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://lvl1iniciante01"]
+
+[ext_resource type="Script" path="res://scripts/Level1_Iniciante.gd" id="1_lvl1"]
+[ext_resource type="PackedScene" path="res://scenes/LabBench2D.tscn" id="2_bench"]
+
+[node name="Level1_Iniciante" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvl1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09, 0.11, 0.15, 1)
+
+[node name="LabBench2D" parent="." instance=ExtResource("2_bench")]
+position = Vector2(240, 60)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBox" type="HBoxContainer" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="UI/TopBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "  🧪 Nível 1: O Químico Iniciante (Ciclo 1 DBR)"
+
+[node name="ScoreLabel" type="Label" parent="UI/TopBar/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Pontos: 0  "
+
+[node name="SystemsPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(300, 160)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = 230.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/SystemsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="UI/SystemsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "🔍 Monitor dos 3 Sistemas"
+horizontal_alignment = 1
+
+[node name="LblS1" type="Label" parent="UI/SystemsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "S1 (Aquecimento): 25.0 °C"
+
+[node name="LblS2" type="Label" parent="UI/SystemsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "S2 (Reação): Aguardando calor..."
+autowrap_mode = 2
+
+[node name="LblS3" type="Label" parent="UI/SystemsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "S3 (Detecção): Água de cal límpida"
+autowrap_mode = 2
+
+[node name="ControlPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(220, 70)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -180.0
+offset_right = 250.0
+offset_bottom = -110.0
+grow_vertical = 0
+
+[node name="FlameToggleButton" type="Button" parent="UI/ControlPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Acender Bico Bunsen 🔥"
+
+[node name="DialogPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -90.0
+offset_right = -30.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="HBoxContainer" parent="UI/DialogPanel"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Avatar" type="Label" parent="UI/DialogPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " 👨‍🔬"
+
+[node name="DialogText" type="Label" parent="UI/DialogPanel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Instruções do assistente..."
+autowrap_mode = 2
+
+[node name="NextButton" type="Button" parent="UI/DialogPanel/VBox"]
+custom_minimum_size = Vector2(130, 45)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Avançar ➡️"

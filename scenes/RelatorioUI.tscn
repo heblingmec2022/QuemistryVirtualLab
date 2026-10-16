@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://relatorioui01"]
+
+[ext_resource type="Script" path="res://scripts/RelatorioUI.gd" id="1_rep"]
+
+[node name="RelatorioUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rep")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.08, 0.11, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(900, 620)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -310.0
+offset_right = 450.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="PanelContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "📋 Caderno Científico e Relatório Experimental"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ContentVBox" type="VBoxContainer" parent="PanelContainer/VBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="LblSummary" type="Label" parent="PanelContainer/VBox/ScrollContainer/ContentVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Carregando resumo dos dados experimentais..."
+autowrap_mode = 2
+
+[node name="LblConclusionTitle" type="Label" parent="PanelContainer/VBox/ScrollContainer/ContentVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "4. CONCLUSÃO E DISCUSSÃO CIENTÍFICA (Redija suas conclusões):"
+
+[node name="TextConclusion" type="TextEdit" parent="PanelContainer/VBox/ScrollContainer/ContentVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+placeholder_text = "Discuta como a reação de oxirredução confirmou a redução do CuO a Cobre metálico e a liberação de CO2..."
+
+[node name="LblRubric" type="Label" parent="PanelContainer/VBox/ScrollContainer/ContentVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Rúbrica de Avaliação..."
+autowrap_mode = 2
+
+[node name="SubmitButton" type="Button" parent="PanelContainer/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "Submeter Relatório e Finalizar com Rúbrica ⭐"
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Voltar ao Menu Principal"

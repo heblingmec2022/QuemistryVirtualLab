@@ -1,0 +1,127 @@
+[gd_scene load_steps=2 format=3 uid="uid://mainmenu01"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.09, 0.13, 1)
+
+[node name="TopHeader" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBox" type="HBoxContainer" parent="TopHeader"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="TopHeader/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "  🧪 Laboratório Virtual de Química (Godot Engine)"
+
+[node name="LblScore" type="Label" parent="TopHeader/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Pontuação Total: 0 pts  "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -240.0
+offset_right = 560.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Experimento: Redução Carbotérmica do Óxido de Cobre(II) com Carvão (2 CuO + C -> 2 Cu + CO2)"
+horizontal_alignment = 1
+
+[node name="LevelCards" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BtnLevel1" type="Button" parent="VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "🧪 NÍVEL 1: Químico Iniciante
+(Ciclo 1 DBR)
+
+• Montagem guiada passo a passo
+• Observação dos Sistemas S1, S2 e S3
+• Reconhecimento de materiais"
+
+[node name="BtnLevel2" type="Button" parent="VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "⚗️ NÍVEL 2: Técnico de Laboratório
+(Ciclo 2 DBR)
+
+• Proporções estequiométricas
+• Minigame de risco de refluxo
+• Associação de equações químicas"
+
+[node name="BtnLevel3" type="Button" parent="VBoxContainer/LevelCards"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "🔬 NÍVEL 3: Investigador Químico
+(Ciclo 3 DBR)
+
+• Amostra desconhecida e hipótese
+• Balança digital e fotometria
+• Minigame redox e relatório final"
+
+[node name="BadgesPanel" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/BadgesPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer/BadgesPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "🏆 Galeria de Insígnias e Conquistas Gamificadas:"
+horizontal_alignment = 1
+
+[node name="BadgesHBox" type="HBoxContainer" parent="VBoxContainer/BadgesPanel/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 25
+
+[node name="FooterInfo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Fundamentado em Design-Based Research (DBR) • Teoria do Flow (Csikszentmihalyi, 1990) • Gamificação (Deterding, 2011)"
+horizontal_alignment = 1

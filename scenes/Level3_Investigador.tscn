@@ -1,0 +1,166 @@
+[gd_scene load_steps=4 format=3 uid="uid://lvl3investigador03"]
+
+[ext_resource type="Script" path="res://scripts/Level3_Investigador.gd" id="1_lvl3"]
+[ext_resource type="PackedScene" path="res://scenes/LabBench2D.tscn" id="2_bench"]
+[ext_resource type="PackedScene" path="res://scenes/MiniGameEletrons.tscn" id="3_elec"]
+
+[node name="Level3_Investigador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvl3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07, 0.09, 0.13, 1)
+
+[node name="LabBench2D" parent="." instance=ExtResource("2_bench")]
+position = Vector2(240, 60)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBox" type="HBoxContainer" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="UI/TopBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "  🔬 Nível 3: Investigador Químico (Ciclo 3 DBR)"
+
+[node name="HypothesisPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(440, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -100.0
+offset_right = 220.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/HypothesisPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/HypothesisPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "🧪 Investigação de Amostra Desconhecida"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="UI/HypothesisPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "A amostra preta é Óxido de Cobre(II). Selecione o agente redutor e registre sua hipótese:"
+autowrap_mode = 2
+
+[node name="ReagentOption" type="OptionButton" parent="UI/HypothesisPanel/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HypothesisText" type="LineEdit" parent="UI/HypothesisPanel/VBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+placeholder_text = "Digite sua hipótese de reação..."
+
+[node name="ConfirmHypothesisBtn" type="Button" parent="UI/HypothesisPanel/VBox"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+text = "Iniciar Protocolo Experimental 🚀"
+
+[node name="TelemetryPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(340, 150)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = 220.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="UI/TelemetryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "📊 Telemetria Multivariável (S1, S2, S3)"
+horizontal_alignment = 1
+
+[node name="Grid" type="VBoxContainer" parent="UI/TelemetryPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LblTemp" type="Label" parent="UI/TelemetryPanel/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Temperatura (S1): 25.0 °C"
+
+[node name="LblMass" type="Label" parent="UI/TelemetryPanel/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Balança Digital (S2): 17.10 g"
+
+[node name="LblTurbidity" type="Label" parent="UI/TelemetryPanel/VBox/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Fotometria S3 (Turvação): 0.0 %"
+
+[node name="WorkbenchControls" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="FlameToggleBtn" type="Button" parent="UI/WorkbenchControls"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Acender Bico Bunsen 🔥"
+
+[node name="OpenReportBtn" type="Button" parent="UI/WorkbenchControls"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Abrir Relatório Científico e Rúbrica 📋"
+
+[node name="RedoxMinigamePanel" parent="UI" instance=ExtResource("3_elec")]
+layout_mode = 1

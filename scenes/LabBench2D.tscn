@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7m5y3q2wlab1"]
+
+[ext_resource type="Script" path="res://scripts/LabBench2D.gd" id="1_labbench"]
+
+[node name="LabBench2D" type="Node2D"]
+script = ExtResource("1_labbench")
